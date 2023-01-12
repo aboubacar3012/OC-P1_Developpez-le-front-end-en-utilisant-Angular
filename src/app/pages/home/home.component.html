@@ -1,4 +1,10 @@
-<h2>Olympic games app</h2>
+<div class="flex flex-column align-items-center justify-content-center">
+  <!-- <h2>Olympic games app</h2> -->
+<h2>Medals per Country</h2>
 <hr />
-<p>{{ (olympics$ | async)?.length }} data loaded</p>
+<!-- <p>{{ (olympics$ | async)?.length }} data loaded</p> -->
+<p>Number of JOs {{numberOfJOs}}</p>
+<p>Number of countries {{numberOfCountries}}</p>
 
+<p-chart type="pie" [data]="data"  (onDataSelect)="selectData($event)"  [style]="{'width': '60%'}"></p-chart>
+</div>
