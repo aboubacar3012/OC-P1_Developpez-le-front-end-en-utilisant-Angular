@@ -25,6 +25,7 @@ export class DetailComponent implements OnInit {
   ngOnInit() {
     this.countryId = +this.route.snapshot.params['id'];
     this.olympics$ = this.olympicServe.getOlympics();
+
     this.olympics$.subscribe({
       next: (object: Olympic[]) => {
         this.country = object.find((country) => country.id === this.countryId);
@@ -32,7 +33,7 @@ export class DetailComponent implements OnInit {
         if (this.country) this.initChart(this.country);
       },
       error: (msg) => {
-        console.log('Error Getting Location: ', msg);
+        console.log(msg);
       },
       complete: () => {
         console.log('Observer got a complete notification');

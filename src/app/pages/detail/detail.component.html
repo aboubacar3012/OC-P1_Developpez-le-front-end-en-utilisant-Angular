@@ -2,8 +2,9 @@
   <p>Nombre de participations aux JO: {{nbOfEntries()}}</p>
   <p>Nombre total de médailles obtenues: {{nbOfMedals()}}</p>
   <p>Nombre total d'athlètes présentés aux JO: {{nbOfAthletes()}}</p>
-</div>
-<div class="card">
-  <h5>Basic</h5>
-  <p-chart type="bar" [data]="basicData" [style]="{'width': '50%'}" ></p-chart>
+  <div class="card">
+    <h5>Basic</h5>
+    <p-chart type="line" [data]="basicData" [style]="{'width': '50%'}" ></p-chart>
+  </div>
+
 </div>
