@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, Subject, of, takeUntil } from 'rxjs';
@@ -19,6 +20,7 @@ export class DetailComponent implements OnInit, OnDestroy {
   basicData: any;
 
   constructor(
+    private location: Location,
     private route: ActivatedRoute,
     private olympicServe: OlympicService
   ) {}
@@ -78,5 +80,9 @@ export class DetailComponent implements OnInit, OnDestroy {
       (prev, current) => current.athleteCount + prev,
       0
     );
+  }
+
+  goBack() {
+    this.location.back();
   }
 }

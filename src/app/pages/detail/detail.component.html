@@ -1,4 +1,6 @@
 <div *ngIf="country" class="flex flex-column align-items-center justify-content-center m-auto w-10 md:w-5">
+  <p-button (click)="goBack()" label="Previous" icon="pi pi-angle-double-left" styleClass="p-button" ></p-button>
+  <br/>
   <div class="flex ">
     <div class="border-cyan-500 border-3 border-round font-bold m-1 p-2 flex flex-column justify-content-center align-items-center">
       <span class="text-white">Total of entries:</span>

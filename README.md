@@ -11,7 +11,6 @@ Il s’agit d’un nouveau projet pour le compte de la chaîne de télévision T
 
 Technologies
 ------------
-
 * HMTL
 * CSS
 * TypeScript
