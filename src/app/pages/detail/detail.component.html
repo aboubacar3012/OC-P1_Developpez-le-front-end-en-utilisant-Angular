@@ -1,10 +1,17 @@
-<div *ngIf="country" class="flex flex-column align-items-center justify-content-center">
-  <p>Nombre de participations aux JO: {{nbOfEntries()}}</p>
-  <p>Nombre total de médailles obtenues: {{nbOfMedals()}}</p>
-  <p>Nombre total d'athlètes présentés aux JO: {{nbOfAthletes()}}</p>
-  <div class="card">
-    <h5>Basic</h5>
-    <p-chart type="line" [data]="basicData" [style]="{'width': '50%'}" ></p-chart>
+<div *ngIf="country" class="flex flex-column align-items-center justify-content-center m-auto w-10 md:w-5">
+  <div class="flex ">
+    <div class="border-cyan-500 border-3 border-round font-bold m-1 p-2 flex flex-column justify-content-center align-items-center">
+      <span class="text-white">Total of entries:</span>
+      {{nbOfEntries()}}
+    </div>
+    <div class="border-cyan-500 border-3 border-round font-bold m-1 p-2 flex flex-column justify-content-center align-items-center">
+      <span class="text-white">Total number medals:</span>
+      {{nbOfMedals()}}
+    </div>
+    <div class="border-cyan-500 border-3 border-round font-bold m-1 p-2 flex flex-column justify-content-center align-items-center">
+      <span class="text-white">Total number of athletes:</span>
+      {{nbOfAthletes()}}
+    </div>
   </div>
-
+  <p-chart type="line" [data]="basicData" [style]="{'width': '100%'}" ></p-chart>
 </div>

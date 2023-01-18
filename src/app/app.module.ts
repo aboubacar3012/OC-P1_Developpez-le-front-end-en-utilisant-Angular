@@ -8,17 +8,26 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 
+import { BadgeModule } from 'primeng/badge';
 import { ChartModule } from 'primeng/chart';
+import { ButtonModule } from 'primeng/button';
+
 import { DetailComponent } from './pages/detail/detail.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, NotFoundComponent, DetailComponent],
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    NotFoundComponent,
+    DetailComponent,
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     ChartModule,
+    ButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

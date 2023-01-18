@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable, of } from 'rxjs';
+import { Observable, Subject, of, takeUntil } from 'rxjs';
 import { Olympic } from 'src/app/core/models/Olympic';
 import { OlympicService } from 'src/app/core/services/olympic.service';
 
@@ -9,8 +9,9 @@ import { OlympicService } from 'src/app/core/services/olympic.service';
   templateUrl: './detail.component.html',
   styleUrls: ['./detail.component.scss'],
 })
-export class DetailComponent implements OnInit {
-  public olympics$: Observable<Olympic[]> = of([]);
+export class DetailComponent implements OnInit, OnDestroy {
+  olympics$: Observable<Olympic[]> = of([]);
+  destroy$: Subject<boolean> = new Subject();
 
   countryId!: number;
   country!: Olympic | undefined;
@@ -26,7 +27,7 @@ export class DetailComponent implements OnInit {
     this.countryId = +this.route.snapshot.params['id'];
     this.olympics$ = this.olympicServe.getOlympics();
 
-    this.olympics$.subscribe({
+    this.olympics$.pipe(takeUntil(this.destroy$)).subscribe({
       next: (object: Olympic[]) => {
         this.country = object.find((country) => country.id === this.countryId);
         console.log(this.country);
@@ -39,6 +40,10 @@ export class DetailComponent implements OnInit {
         console.log('Observer got a complete notification');
       },
     });
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next(true);
   }
 
   initChart(country: Olympic) {
