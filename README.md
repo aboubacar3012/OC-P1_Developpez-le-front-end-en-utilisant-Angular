@@ -22,3 +22,5 @@ Ce projet a été généré avec Angular CLI version 14.1.3.
 1. Il faudra cloner l'application avec la commande: ``git clone https://github.com/aboubacar3012/OC-P1_Developpez-le-front-end-en-utilisant-Angular.git``
 2. `` npm install ``
 3. `` ng serve ``
+4. `` Url dev: http://localhost:4200``
+5. `` Url prod: https://oc-p1-developpez-le-front-end-en-utilisant-angular-5pvn.vercel.app/ ``
